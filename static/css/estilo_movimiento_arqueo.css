@@ -1,0 +1,97 @@
+/* Contenedor principal de movimientos */
+#pa_contenedor_movimientos {
+    background-color: #f8f9fa; /* Fondo claro */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 10px; /* Bordes redondeados */
+    margin: 20px auto; /* Margen superior e inferior ajustado */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    width: 90%; /* Ancho dinámico */
+    max-width: 1200px; /* Ancho máximo */
+    height: 73vh; /* Altura adecuada */
+    display: flex;
+    flex-direction: column;
+    padding: 20px; /* Relleno interno */
+}
+
+/* Título de movimientos */
+#pa_contenedor_movimientos h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #007bff; /* Azul más destacable */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #007bff; /* Borde inferior más grueso */
+}
+
+/* Contenedor con scroll para la tabla */
+.table-container {
+    flex-grow: 1;
+    overflow-y: auto; /* Scroll vertical */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco para destacar las tablas */
+}
+
+/* Tabla de movimientos */
+table {
+    width: 100%;
+    border-collapse: separate; /* Permite separar las celdas */
+    border-spacing: 15px; /* Espaciado entre celdas para simular cuadros */
+    margin: 0;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: #f8f9fa; /* Fondo claro para las celdas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra en cada celda para simular cuadros */
+}
+
+table th {
+    background-color: #007bff; /* Fondo azul para encabezados */
+    color: white;
+    text-transform: uppercase;
+    font-size: 1em;
+    border: none; /* Sin borde para encabezados */
+}
+
+table tr:hover td {
+    background-color: #e9ecef; /* Fondo al pasar el cursor */
+}
+
+/* Scroll personalizado */
+.table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    #pa_contenedor_movimientos {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .table-container {
+        max-height: 50vh;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    table {
+        border-spacing: 10px; /* Espaciado menor en pantallas pequeñas */
+    }
+}

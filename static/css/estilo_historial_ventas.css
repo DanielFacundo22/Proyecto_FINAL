@@ -1,0 +1,130 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+#pa_titulo_historial_ventas {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#pa_contenedor_historial_ventas {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Filtros */
+#pa_filtros_ventas {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#pa_filtros_ventas input[type="text"],
+#pa_filtros_ventas input[type="date"] {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+#pa_filtros_ventas button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pa_filtros_ventas button:hover {
+    background-color: #0056b3;
+}
+
+/* Tabla */
+.tabla-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+#pa_tabla_historial_ventas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#pa_tabla_historial_ventas th, 
+#pa_tabla_historial_ventas td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#pa_tabla_historial_ventas th {
+    background-color: #007bff;
+    color: white;
+}
+
+#pa_tabla_historial_ventas tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+#btn_detalle_compras {
+    background-color: #17a2b8;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#btn_detalle_compras:hover {
+    background-color: #138496;
+}
+
+#no_compras {
+    text-align: center;
+    color: #555;
+    font-size: 16px;
+    padding: 10px 0;
+}
+
+/* Scroll personalizado */
+.tabla-scroll::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+.tabla-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    #pa_filtros_ventas {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #pa_tabla_historial_ventas th, 
+    #pa_tabla_historial_ventas td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #btn_detalle_compras {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}

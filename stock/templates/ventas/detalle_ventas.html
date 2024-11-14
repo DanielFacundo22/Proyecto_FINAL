@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Detalle de Venta{% endblock %}
+
+{% block contenido %}
+<div id="pa_detalle_contenedor">
+    <h2 id="pa_titulo_detalle">Detalle de la Venta</h2>
+    <p id="pa_id_venta"><strong>ID Venta:</strong> {{ venta.id_venta }}</p>
+    <p id="pa_cliente"><strong>Cliente:</strong> {{ venta.id_cli.nombre_cli }} {{ venta.id_cli.apellido_cli }}</p>
+    <p id="pa_fecha"><strong>Fecha:</strong> {{ venta.fecha_hs }}</p>
+    <p id="pa_total"><strong>Total:</strong> ${{ venta.total_venta }}</p>
+
+    <h3 id="pa_titulo_productos">Productos Vendidos</h3>
+    <table id="pa_detalle_table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio Unitario</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for detalle in detalles %}
+            <tr>
+                <td>{{ detalle.id_prod.nombre_prod }}</td>
+                <td>${{ detalle.precio_prod }}</td>
+                <td>{{ detalle.cant_vendida }}</td>
+                <td>${{ detalle.subtotal_venta }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'crear_venta' %}" id="pa_btn_volver" class="btn btn-primary">Nueva venta</a>
+    <a href="{% url 'generar_pdf' venta.id_venta %}" id="btn_imprimir" class="btn-primary">Imprimir</a>
+</div>
+<head>
+    <link rel="stylesheet" href="/static/css/estilo_detalle_ventas.css"> 
+</head>
+{% endblock %}

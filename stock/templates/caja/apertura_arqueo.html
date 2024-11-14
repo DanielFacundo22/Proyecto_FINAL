@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block titulo %} Apertura de Caja {% endblock %}
+{% block contenido %}
+<div class="contenedor_apertura_caja">
+  <div class="apertura_ap_caka"></div>
+  <div class="body__apcaja">
+    <h4 class="titulo_ap_caja">Apertura de Caja</h4>
+    {% if error_message %}
+        <script>
+            alert("{{ error_message }}");
+        </script>
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <div class="ap_caja">
+        {{ form.id_emplead }}  <!-- Campo oculto -->
+        <p>
+          <label for="id_id_emplead">Empleado:</label>
+          <input type="text" id="id_id_emplead" value="{{ request.user.empleado }}" readonly>
+        </p>
+        {{ form.monto_inicial.label_tag }} {{ form.monto_inicial }}
+        {% for error in form.monto_inicial.errors %}
+          <p style="color: red;">{{ error }}</p>
+        {% endfor %}
+      </div>
+      <button type="submit" class="btn_apertura_caja">Guardar</button>
+    </form>
+  </div>
+</div>
+
+<head>
+  <link rel="stylesheet" href="/static/css/estilo_apertura_arqueo.css"> 
+</head>
+{% endblock %}

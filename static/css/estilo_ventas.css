@@ -1,0 +1,255 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h4 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contenedor_ventas {
+    display: flex;
+    justify-content: space-between;
+    /* Espaciado uniforme entre cajas */
+    gap: 20px;
+    /* Ajustar el espacio entre contenedores */
+    margin: 20px auto;
+    padding: 0 20px;
+    /* Añadir un pequeño padding lateral */
+    max-width: 1200px;
+    /* Limitar ancho máximo en pantallas grandes */
+    box-sizing: border-box;
+    /* Asegura que el padding no afecte el ancho total */
+    height: 500px;
+}
+
+.caja_venta {
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 500px;
+    width: 55%;
+
+}
+
+.caja_productos {
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 500px;
+    width: 35%;
+}
+
+.grupo_superior {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.barra_baja {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    flex-wrap: wrap;
+}
+
+
+/* Encabezado de Venta */
+.Encabezado_venta h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Formularios */
+.contenedor_formulario {
+    margin-bottom: 20px;
+}
+
+#grupo_superior {
+    justify-content: space-between;
+}
+
+.grupo_formularios {
+    margin-bottom: 15px;
+}
+
+.grupo_formularios label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.grupo_formularios input,
+.grupo_formularios select {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+/* Tabla de productos seleccionados */
+.tabla-productos-contenedor {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: 200px;
+}
+
+#tabla-venta {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tabla-venta th,
+#tabla-venta td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#tabla-venta th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Total */
+.total {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    justify-content: space-between;
+    display: flex;
+    height: 15px;
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Caja de Productos */
+.card {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+#buscarProducto {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 14px;
+    margin-left: 15%;
+    /* Ajusta este valor para mover el elemento hacia la derecha */
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+
+/* Tabla de productos disponibles */
+.contenedor-lista-productos {
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Scroll personalizado */
+
+
+.tabla-productos-contenedor::-webkit-scrollbar-thumb,
+.contenedor-lista-productos::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+.tabla-productos-contenedor::-webkit-scrollbar-track,
+.contenedor-lista-productos::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .contenedor_ventas {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .caja_venta,
+    .caja_productos {
+        width: 100%;
+    }
+
+    .buttons {
+        justify-content: space-between;
+    }
+
+    button {
+        width: 100%;
+    }
+}

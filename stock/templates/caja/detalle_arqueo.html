@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Detalle de Caja{% endblock %}
+{% block contenido %}
+<div id="pa_contenedor_detalle">
+    <h2>detalle de Caja {{ caja.id_caja }} - {{ caja.fecha_hs_apertura }}</h2>
+    <div class="detalle-caja">
+    </div>
+    <div class="table-container">
+        <h3>Ingresos</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Monto</th>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ingreso in ingresos %}
+                <tr>
+                    <td>${{ ingreso.monto }}</td>
+                    <td>{{ ingreso.fecha_ingreso|date:"d/m/Y H:i" }}</td>
+                    <td>{{ ingreso.descripcion }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="2"><strong>Subtotal</strong></td>
+                    <td><strong>${{ subtotal_ingresos }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-container">
+        <h3>Ventas</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Monto</th>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for venta in ventas %}
+                <tr>
+                    <td>${{ venta.total_venta }}</td>
+                    <td>{{ venta.fecha_hs|date:"d/m/Y H:i" }}</td>
+                    <td>{{ venta.descripcion }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="2"><strong>Subtotal</strong></td>
+                    <td><strong>${{ subtotal_ventas }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-container">
+        <h3>Egresos</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Monto</th>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for egreso in egresos %}
+                <tr>
+                    <td>${{ egreso.monto }}</td>
+                    <td>{{ egreso.fecha|date:"d/m/Y H:i" }}</td>
+                    <td>{{ egreso.descripcion }}</td>
+                    <td>{{ egreso.tipo_literal }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="3"><strong>Subtotal</strong></td>
+                    <td><strong>${{ subtotal_egresos }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+<link rel="stylesheet" href="/static/css/estilo_detalle_arqueo.css">
+{% endblock %}

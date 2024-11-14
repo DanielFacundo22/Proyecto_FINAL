@@ -1,0 +1,126 @@
+/* Contenedor principal */
+.contenedor_cierre_caja {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 2px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    height: 73vh; /* Altura del contenedor principal */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título principal */
+.contenedor_cierre_caja h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Mensaje de confirmación */
+.confirmacion-cierre {
+    text-align: center;
+    font-size: 1.2em;
+    color: #dc3545;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Ícono de advertencia */
+.icono-advertencia {
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Tabla de información de caja */
+.tabla_cierre_caja {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezados de la tabla */
+.tabla_cierre_caja th {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+/* Celdas de la tabla */
+.tabla_cierre_caja td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Estilo del formulario */
+.formulario-cierre {
+    margin-top: 30px;
+}
+
+/* Campo de comentarios */
+.comentarios-textarea {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de los botones */
+.botones-accion {
+    margin-top: 20px;
+}
+
+/* Botón principal para cerrar la caja */
+.btn_cierre_caja {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    margin: 20px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto hover para el botón de cierre */
+.btn_cierre_caja:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Botón de cancelar */
+.btn_cancelar {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    margin: 20px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto hover para el botón de cancelar */
+.btn_cancelar:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
+}

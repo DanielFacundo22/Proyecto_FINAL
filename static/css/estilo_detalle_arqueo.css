@@ -1,0 +1,107 @@
+/* Contenedor principal de detalle de caja */
+#pa_contenedor_detalle {
+    background-color: #f8f9fa; /* Fondo claro */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 10px; /* Bordes redondeados */
+    margin: 20px auto; /* Margen superior e inferior ajustado */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    width: 90%; /* Ancho dinámico */
+    max-width: 1200px; /* Ancho máximo */
+    padding: 20px; /* Relleno interno */
+}
+
+/* Título principal */
+#pa_contenedor_detalle h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #007bff; /* Azul más destacable */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #007bff; /* Borde inferior más grueso */
+}
+
+/* Títulos de secciones */
+#pa_contenedor_detalle h3 {
+    font-size: 1.5em;
+    color: #6c757d; /* Gris oscuro */
+    margin-bottom: 10px;
+}
+
+/* Contenedor de detalle de caja */
+.detalle-caja {
+    text-align: right;
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Contenedor con scroll para las tablas */
+.table-container {
+    margin-top: 20px;
+    flex-grow: 1;
+    overflow-y: auto; /* Scroll vertical si es necesario */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px; /* Espaciado interno */
+}
+
+/* Tablas de detalle */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1em; /* Tamaño ligeramente más grande */
+}
+
+table tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Subtotal en tablas */
+table tbody tr:last-child td {
+    font-weight: bold;
+    background-color: #f8f9fa;
+}
+
+/* Scroll personalizado */
+.table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    #pa_contenedor_detalle {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .table-container {
+        max-height: 50vh;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}

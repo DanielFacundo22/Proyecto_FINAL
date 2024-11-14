@@ -1,0 +1,95 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor_detalle_compra {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.info_compra p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.info_compra strong {
+    color: #007bff;
+}
+
+/* Tabla de detalle de compra */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table th, 
+.table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Botón regresar */
+.boton-regresar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.boton-regresar .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.boton-regresar .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .contenedor_detalle_compra {
+        padding: 15px;
+    }
+
+    .table th, 
+    .table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .boton-regresar .btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}

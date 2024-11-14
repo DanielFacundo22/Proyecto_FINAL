@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block titulo %}Detalle de Compra{% endblock %}
+
+{% block contenido %}
+<div class="contenedor_detalle_compra">
+    <h1>Detalle de la Compra</h1>
+    <div class="info_compra">
+        <p><strong>Fecha de compra:</strong> {{ compra.fecha_compra }}</p>
+        <p><strong>Proveedor:</strong> {{ compra.id_prov.nombre_prov }}</p>
+        <p><strong>Total de la compra:</strong> ${{ compra.total_compra }}</p>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Costo</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detalle in detalles %}
+            <tr>
+                <td>{{ detalle.id_prod.nombre_prod }}</td>
+                <td>{{ detalle.cant_comprada }}</td>
+                <td>${{ detalle.precio_unitario }}</td>
+                <td>${{ detalle.subtotal_compra }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="boton-regresar">
+        <a href="{% url 'historial_compras' %}" class="btn btn-primary">Regresar al Historial de Compras</a>
+    </div>
+</div>
+<head>
+    <link rel="stylesheet" href="/static/css/estilo_detalle_compras.css"> 
+</head>
+{% endblock %}
+

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block titulo %}Historial de Ventas{% endblock %}
+
+{% block contenido %}
+<div id="pa_contenedor_historial_ventas">
+    <h2 id="pa_titulo_historial_ventas">Historial de Ventas</h2>
+    
+    <!-- Barra de búsqueda o filtros -->
+    <div id="pa_filtros_ventas">
+        <form method="get" action="">
+            <input type="text" name="buscar_cliente" placeholder="Buscar por cliente">
+            <input type="date" name="fecha_inicio">
+            <input type="date" name="fecha_fin">
+            <button type="submit">Filtrar</button>
+            <button type="button" id="btn_limpiar_filtros">Limpiar Filtros</button>
+        </form>
+    </div>
+
+    <!-- Contenedor para habilitar scroll en la tabla -->
+    <div class="tabla-scroll">
+        <table id="pa_tabla_historial_ventas">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Cliente</th>
+                    <th>Total</th>
+                    <th>Método de Pago</th>
+                    <th>Estado</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for venta in ventas %}
+                <tr>
+                    <td>{{ venta.fecha_hs }}</td>
+                    <td>{{ venta.id_cli.nombre_cli }} {{ venta.id_cli.apellido_cli }}</td>
+                    <td>${{ venta.total_venta }}</td>
+                    <td>{{ venta.metodo_pago }}</td>
+                    <td>{{ venta.estado }}</td>
+                    <td><a href="{% url 'det_venta' venta.id_venta %}" id="btn_detalle_compras" class="btn">Ver Detalle</a></td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" id="no_compras">No hay ventas registradas.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<head>
+    <link rel="stylesheet" href="/static/css/estilo_historial_ventas.css"> 
+</head>
+<body>
+    <script src="/static/scripts/historial_ventas.js"></script>
+</body>
+{% endblock %}

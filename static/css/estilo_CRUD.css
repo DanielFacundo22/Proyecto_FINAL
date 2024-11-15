@@ -1,0 +1,345 @@
+/* Estilo general para el contenedor principal */
+.contenedor-lista {
+    width: 80%;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Título principal */
+.titulo-lista {
+    text-align: center;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+}
+
+/* Contenedor de la tabla para hacerla responsiva */
+.contenedor-tabla {
+    overflow-x: auto;
+}
+
+/* Estilo de la tabla */
+.tabla {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado de la tabla */
+.tabla th {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+/* Estilo de las celdas */
+.tabla td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    color: #333;
+    font-size: 0.95em;
+}
+
+/* Botones */
+.btn-editar {
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.btn-borrar {
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+/* Botón Agregar */
+.boton-agregar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-agregar {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover {
+    background-color: #0056b3;
+}
+
+
+/* Contenedor principal de la vista de productos */
+#productos-view {
+    width: 100%;
+    padding: 2px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevenir overflow en el contenedor */
+    height: calc(90vh - 160px); /* Altura fija para ocupar la mayor parte de la pantalla */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título principal */
+#productos-view h4 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+}
+
+/* Contenedor con scroll para la tabla de productos */
+.table-scroll {
+    flex-grow: 1;
+    overflow-y: auto; /* Scroll vertical solo en la tabla */
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* Tabla de productos */
+.productos-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin: 0;
+}
+
+.productos-table th, .productos-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Estilo para el encabezado de la tabla */
+.productos-table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Filas alternas */
+.productos-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.productos-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Mensaje de "No hay datos" */
+.no-data {
+    text-align: center;
+    font-size: 1.2em;
+    color: #999;
+}
+
+/* Botones de acción */
+.btn-editar, .btn-borrar {
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.btn-editar {
+    background-color: #28a745;
+}
+
+.btn-editar:hover {
+    background-color: #218838;
+}
+
+.btn-borrar {
+    background-color: #dc3545;
+}
+
+.btn-borrar:hover {
+    background-color: #c82333;
+}
+
+/* Botón de agregar */
+.btn-agregar {
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+    background-color: #0d04c7;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-agregar:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Scroll personalizado */
+.table-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    #productos-view {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .table-scroll {
+        max-height: 300px;
+    }
+
+    .productos-table th, .productos-table td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .btn-agregar {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+/* Estilización del contenedor principal articulos */
+#pa_card {
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#pa_card_header {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#pa_card_body {
+    padding: 20px;
+}
+
+#pa_card_title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #007bff;
+    text-align: center;
+}
+
+/* Formularios */
+#pa_card form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Espaciado uniforme entre los campos */
+}
+
+#pa_card form label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#pa_card form input[type="text"],
+#pa_card form input[type="number"],
+#pa_card form input[type="date"],
+#pa_card form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: border 0.3s ease;
+}
+
+#pa_card form input[type="text"]:focus,
+#pa_card form input[type="number"]:focus,
+#pa_card form input[type="date"]:focus,
+#pa_card form textarea:focus {
+    border-color: #0056b3;
+    background-color: #ffffff;
+    outline: none;
+    /* Elimina el borde azul predeterminado */
+}
+
+/* Botón de guardar */
+#pa_card form .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+
+#pa_card form .btn-primary {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+#pa_card form .btn-primary:hover {
+    background-color: #218838;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    #pa_card {
+        max-width: 90%;
+    }
+
+    #pa_card form .btn {
+        width: 100%;
+    }
+}

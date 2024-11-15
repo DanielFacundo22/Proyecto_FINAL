@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block titulo %}Acciones del Empleado{% endblock %}
+
+{% block contenido %}
+<h2>Acciones del empleado: {{ empleado.nombre_emplead }} {{ empleado.apellido_emplead }}</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Proceso</th>
+            <th>Fecha y Hora</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for accion in acciones %}
+        <tr>
+            <td>{{ accion.proceso }}</td>
+            <td>{{ accion.fecha_hora }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<head>
+    <link rel="stylesheet" href="/static/css/estilo_CRUD.css"> 
+</head>
+
+{% endblock %}

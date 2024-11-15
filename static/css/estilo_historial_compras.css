@@ -1,0 +1,98 @@
+/* Contenedor principal del historial de compras */
+.contenedor_historial_compras {
+    background-color: #f8f9fa; /* Fondo claro */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 10px; /* Bordes redondeados */
+    margin: 20px auto; /* Margen superior e inferior ajustado */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 90%; /* Ancho dinámico */
+    max-width: 1200px; /* Ancho máximo */
+    padding: 20px; /* Relleno interno */
+}
+
+/* Título principal */
+.contenedor_historial_compras h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #007bff; /* Azul destacable */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #007bff; /* Borde inferior */
+}
+
+/* Tabla de historial de compras */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    background-color: #ffffff; /* Fondo blanco para la tabla */
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: #f8f9fa; /* Fondo claro para las celdas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil en cada celda */
+}
+
+table th {
+    background-color: #007bff; /* Fondo azul para encabezados */
+    color: white;
+    text-transform: uppercase;
+    font-size: 1em;
+    border: none; /* Sin borde adicional para encabezados */
+}
+
+table tr:hover td {
+    background-color: #e9ecef; /* Fondo al pasar el cursor */
+}
+
+/* Botón de acciones */
+.btn-info {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-info:hover {
+    background-color: #0056b3;
+}
+
+/* Ajustes para el mensaje de tabla vacía */
+.text-center {
+    text-align: center;
+    font-size: 1em;
+    color: #6c757d; /* Gris claro */
+}
+
+/* Scroll personalizado */
+.contenedor_historial_compras::-webkit-scrollbar {
+    width: 10px;
+}
+
+.contenedor_historial_compras::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+.contenedor_historial_compras::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor_historial_compras {
+        width: 100%;
+        padding: 10px;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}

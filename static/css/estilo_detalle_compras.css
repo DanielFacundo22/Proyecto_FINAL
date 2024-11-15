@@ -1,0 +1,80 @@
+#pa_detalle_contenedor {
+    width: 60%;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+#pa_titulo_detalle, #pa_titulo_productos {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+#pa_id_venta, #pa_cliente, #pa_fecha, #pa_total {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+#pa_id_venta strong, #pa_cliente strong, #pa_fecha strong, #pa_total strong {
+    color: #555;
+}
+
+#pa_detalle_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#pa_detalle_table th, #pa_detalle_table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+#pa_detalle_table th {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.1em;
+}
+
+#pa_detalle_table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#pa_detalle_table tr:hover {
+    background-color: #ddd;
+}
+
+#pa_btn_volver {
+    display: block;
+    width: 100px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #c93716;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#pa_btn_volver:hover {
+    background-color: #c93716;
+}
+
+#btn_imprimir{
+    display: block;
+    width: 100px;
+    background-color: #0056b3;
+    margin: 20px auto;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}

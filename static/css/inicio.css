@@ -1,0 +1,67 @@
+.articulos-views{
+    width: 10%; /* Ajusta el ancho según lo necesites */
+    max-width: 800px; /* Ancho máximo para el contenedor */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    background-color: #f9f9f9; /* Fondo del contenedor */
+}
+
+.chart-label {
+    text-align: center; /* Centra el texto */
+    font-size: 1.5em; /* Tamaño de la fuente */
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+
+
+/* mensaje de error */
+
+/* Estilos para el fondo del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro translúcido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+    background-color: white; /* Fondo blanco */
+    color: black; /* Texto negro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+    max-width: 500px;
+    width: 90%; /* Se adapta a pantallas pequeñas */
+    text-align: center; /* Centrar texto */
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+    color: black; /* Color del icono de cerrar */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: #555; /* Color más claro al pasar el mouse */
+    text-decoration: none;
+}
+
+/* Estilo para los mensajes dentro del modal */
+.modal-content p {
+    font-size: 1rem;
+    margin: 10px 0;
+}

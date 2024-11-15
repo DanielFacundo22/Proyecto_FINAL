@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+<div class="contenedor_ventas">
+    <!-- Caja de Venta -->
+    <div class="caja_venta">
+        <div class="Encabezado_venta">
+            <h1>Nueva Venta</h1>
+        </div>
+
+        <form action="{% url 'crear_venta' %}" method="POST">
+            {% csrf_token %}
+            <div class="contenedor_formulario">
+
+                <!-- Grupo de Fecha y Vendedor -->
+                <div class="grupo_superior">
+                    <!-- FECHA -->
+                    <div class="grupo_formularios">
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha_hs" name="fecha_hs" readonly>
+                    </div>
+
+                    <!-- SELECCIÓN DEL VENDEDOR -->
+                    <div class="grupo_formularios">
+                        <label for="vendedor">Vendedor:</label>
+                        <input type="text" value="{{ request.user.username }}" readonly>
+                    </div>
+                </div>
+
+                <!-- SELECCIÓN DEL CLIENTE -->
+                <div class="grupo_formularios">
+                    <label>Cliente:</label>
+                    <select name="cliente" id="cliente">
+                        {% for cliente in clientes %}
+                        <option value="{{ cliente.id_cli }}">{{ cliente.nombre_cli }} {{ cliente.apellido_cli }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+            </div>
+            <!-- Contenedor con scroll para la tabla de productos agregados -->
+            <div class="tabla-productos-contenedor">
+                <table id="tabla-venta">
+                    <thead>
+                        <tr>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- Aquí se agregarán los productos seleccionados para la venta -->
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="barra_baja">
+                <!-- Botones de Acción -->
+                <div class="buttons">
+                    <button class="btn_aceptar_venta" type="submit" value="Guardar"
+                        onclick="return ConfirmarVenta()">Aceptar</button>
+                    <button class="btn_salir" type="button" onclick=window.location.href='{% url ' inicio'
+                        %}'>Salir</button>
+                </div>
+                <!-- Total de la Venta -->
+                <div class="total">
+                    <label for="total">Total:</label>
+                    <input type="number" id="total" name="total" readonly value="0">
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+    <!-- Caja de Productos -->
+    <div class="caja_productos">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Productos</h4>
+
+                <!-- Barra de búsqueda -->
+                <input type="text" id="buscarProducto" class="form-control" placeholder="Buscar producto...">
+
+                <!-- Contenedor con scroll para la lista de productos disponibles -->
+                <div class="contenedor-lista-productos">
+                    <table class="table table-primary">
+                        <thead>
+                            <tr>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-productos">
+                            {% for producto in productos %}
+                            <tr>
+                                <td>{{ producto.stock_actual }}</td>
+                                <td>{{ producto.nombre_prod }}</td>
+                                <td>{{ producto.precio_prod }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-success agregar-producto"
+                                        data-id="{{ producto.id_prod }}" data-nombre="{{ producto.nombre_prod }}"
+                                        data-precio="{{ producto.precio_prod }}">
+                                        Añadir
+                                    </button>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center">No hay artículos disponibles.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+    <script src="/static/scripts/crear_venta.js"></script>
+</body>
+
+<head>
+    <link rel="stylesheet" href="/static/css/estilo_crear_ventas.css">
+</head>
+{% endblock %}

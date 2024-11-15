@@ -1,0 +1,140 @@
+/* Contenedor principal para la apertura de caja */
+.contenedor_apertura_caja {
+    width: 50%;
+    margin: 50px auto; /* Centrar la tarjeta en la pantalla */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    background-color: #f8f9fa; /* Fondo claro */
+    overflow: hidden; /* Evitar desbordes */
+}
+
+/* Encabezado de la apertura */
+.apertura_ap_caka {
+    background-color: #007bff; /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Cuerpo de la tarjeta de apertura de caja */
+.body__apcaja {
+    padding: 20px;
+}
+
+/* Título dentro del cuerpo de la tarjeta */
+.titulo_ap_caja {
+    font-size: 1.8em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Estilo del formulario */
+.ap_caja {
+    margin-bottom: 20px;
+}
+
+/* Estilo de los campos del formulario */
+.ap_caja input[type="text"],
+.ap_caja input[type="number"],
+.ap_caja input[type="date"],
+.ap_caja input[type="email"],
+.ap_caja select {
+    width: 100%; /* Ancho completo */
+    padding: 12px;
+    border: 1px solid #007bff; /* Borde azul */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 15px;
+    font-size: 1em;
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+/* Estilo del botón Guardar */
+.btn_apertura_caja {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.btn_apertura_caja:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .contenedor_apertura_caja {
+        width: 90%; /* Ancho más pequeño en pantallas móviles */
+        margin: 20px auto; /* Ajustar el margen */
+    }
+
+    .titulo_ap_caja {
+        font-size: 1.5em; /* Reducir tamaño de fuente */
+    }
+
+    .btn_apertura_caja {
+        font-size: 1em; /* Tamaño de texto ajustado */
+        padding: 10px;
+    }
+}
+
+
+/* mensaje de error */
+
+/* Estilos para el fondo del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro translúcido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+    background-color: white; /* Fondo blanco */
+    color: black; /* Texto negro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+    max-width: 500px;
+    width: 90%; /* Se adapta a pantallas pequeñas */
+    text-align: center; /* Centrar texto */
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+    color: black; /* Color del icono de cerrar */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: #555; /* Color más claro al pasar el mouse */
+    text-decoration: none;
+}
+
+/* Estilo para los mensajes dentro del modal */
+.modal-content p {
+    font-size: 1rem;
+    margin: 10px 0;
+}

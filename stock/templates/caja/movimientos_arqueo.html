@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Movimientos de Caja{% endblock %}
+{% block contenido %}
+<div id="pa_contenedor_movimientos">
+    <h2>Movimientos de Caja {{ caja.id_caja }} - {{ caja.fecha_hs_apertura }}</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Detalle</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movimiento in movimientos %}
+                <tr>
+                    <td>{{ movimiento.fecha_movimiento }}</td>
+                    <td>{{ movimiento.tipo_literal }}</td>
+                    <td>
+                        {% if movimiento.tipo_literal == "Venta" %}
+                        {{ movimiento.detalle }}
+                        {% elif movimiento.tipo_literal == "Apertura de caja" %}
+                        {{ movimiento.descripcion }}
+                        {% else %}
+                        {{ movimiento.descripcion }}
+                        {% endif %}
+                    </td>
+                    <td>{{ movimiento.monto_calculado }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<head>
+    <link rel="stylesheet" href="/static/css/estilo_movimiento_arqueo.css">
+</head>
+
+{% endblock %}

@@ -1,0 +1,269 @@
+/* Contenedor principal del historial */
+#pa_contenedor_historial {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    height: 73vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Título del historial */
+#pa_contenedor_historial h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #007bff;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #007bff;
+}
+
+/* Contenedor con scroll para la tabla */
+.table-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Tabla de historial */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+}
+
+table tr.closed td {
+    background-color: #e9ecef;
+    color: #6c757d;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Fila de totales */
+tfoot td {
+    font-weight: bold;
+    background-color: #f8f9fa;
+}
+
+/* Mensaje de "No hay registros" */
+.no-data {
+    text-align: center;
+    font-size: 1.1em;
+    color: #777;
+    padding: 20px;
+}
+
+/* Botones personalizados para acciones */
+.btn {
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* Estilo verde para ingresos */
+.btn-i {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+.btn-i:hover {
+    background-color: #218838;
+}
+
+/* Estilo rojo para egresos */
+.btn-e {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+}
+
+.btn-e:hover {
+    background-color: #c82333;
+}
+
+/* Estilo rojo para cerrar caja */
+.red-btn {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+}
+
+.red-btn:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para movimientos */
+.btn-m {
+    background-color: #007bff; /* Azul */
+    color: white;
+}
+
+.btn-m:hover {
+    background-color: #0056b3;
+}
+
+
+/* Encapsular estilos para el formulario de búsqueda dentro de #pa_contenedor_historial */
+#pa_contenedor_historial form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+#pa_contenedor_historial form label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #007bff;
+}
+
+#pa_contenedor_historial input[type="date"] {
+    padding: 8px 15px;
+    font-size: 0.95rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+#pa_contenedor_historial input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#pa_contenedor_historial button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#pa_contenedor_historial button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Scroll personalizado */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    #pa_contenedor_historial {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .table-container {
+        max-height: 50vh;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+
+    form {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* mensaje de error */
+
+/* Estilos para el fondo del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro translúcido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+    background-color: white; /* Fondo blanco */
+    color: black; /* Texto negro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+    max-width: 500px;
+    width: 90%; /* Se adapta a pantallas pequeñas */
+    text-align: center; /* Centrar texto */
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+    color: black; /* Color del icono de cerrar */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: #555; /* Color más claro al pasar el mouse */
+    text-decoration: none;
+}
+
+/* Estilo para los mensajes dentro del modal */
+.modal-content p {
+    font-size: 1rem;
+    margin: 10px 0;
+}

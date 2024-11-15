@@ -1,0 +1,140 @@
+/* Contenedor principal del historial */
+#pa_contenedor_historial_ventas {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 1px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Ancho del contenedor */
+    max-width: 1200px; /* Ancho máximo */
+    height: 75vh; /* Altura fija para todo el contenedor */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título del historial */
+#pa_titulo_historial_ventas {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #007bff; /* Línea inferior para separar */
+}
+
+/* Contenedor de filtros */
+#pa_filtros_ventas {
+    margin-bottom: 20px; /* Espacio inferior */
+    text-align: center; /* Centrando el contenido */
+}
+
+/* Estilos para los inputs de filtros */
+#pa_filtros_ventas input[type="text"],
+#pa_filtros_ventas input[type="date"] {
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    margin: 5px;
+    width: 200px; /* Ancho fijo */
+}
+
+/* Estilo del botón de filtro */
+#pa_filtros_ventas button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#pa_filtros_ventas button:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor con scroll para la tabla */
+.tabla-scroll {
+    flex-grow: 1;
+    overflow-y: auto; /* Scroll solo en esta área */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Tabla de historial de ventas */
+#pa_tabla_historial_ventas {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0; /* Eliminar márgenes para ajustar al contenedor */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado de la tabla */
+#pa_tabla_historial_ventas th {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-transform: uppercase;
+}
+
+/* Celdas de la tabla */
+#pa_tabla_historial_ventas td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Color de las filas alternas */
+#pa_tabla_historial_ventas tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#pa_tabla_historial_ventas tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Mensaje de "No hay ventas registradas" */
+#pa_no_ventas {
+    text-align: center;
+    font-size: 1.2em;
+    color: #999;
+}
+
+/* Botón de detalle */
+#pa_btn_detalle {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #28a745;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#pa_btn_detalle:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    #pa_contenedor_historial_ventas {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #pa_filtros_ventas input[type="text"],
+    #pa_filtros_ventas input[type="date"],
+    #pa_filtros_ventas button {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .tabla-scroll {
+        height: 300px; /* Limitar altura para pantallas pequeñas */
+    }
+}

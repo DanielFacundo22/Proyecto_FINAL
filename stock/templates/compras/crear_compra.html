@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Nueva Compra{% endblock %}
+
+{% block contenido %}
+<div class="contenedor_compras">
+    <div class="caja_compras">
+        <div class="header">
+            <h1>Nueva Compra</h1>
+        </div>
+
+        <form action="{% url 'crear_compra' %}" method="POST">
+            {% csrf_token %}
+
+            <!-- Fecha -->
+            <div class="compras_fecha">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha_hs" name="fecha_hs" readonly>
+            </div>
+
+            <!-- Selección de Proveedor -->
+            <div class="compras_proveedor">
+                <label for="proveedor">Proveedor:</label>
+                <select name="proveedor" id="proveedor">
+                    {% for proveedor in proveedores %}
+                    <option value="{{ proveedor.id_prov }}">{{ proveedor.nombre_prov }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Tabla de productos -->
+            <table id="tabla_compras">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio Costo</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se agregarán los productos dinámicamente -->
+                </tbody>
+            </table>
+
+            <!-- Total de la Compra -->
+            <div class="total_compra">
+                <label for="total">Total:</label>
+                <input type="number" id="total" name="total" readonly value="0">
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="botones">
+                <button class="btn-aceptar_compra" type="submit" value="Guardar">Aceptar</button>
+
+            </div>
+        </form>
+    </div>
+
+    <!-- Caja de Productos -->
+    <div class="caja_productos_compra">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Productos</h4>
+
+                <!-- Barra de búsqueda -->
+                <input type="text" id="buscarProducto" class="form-control" placeholder="Buscar producto...">
+
+                <!-- Lista de productos con scroll -->
+                <div class="contenedor-lista-productos">
+                    <table class="table table-primary">
+                        <thead>
+                            <tr>
+                                <th>Stock Actual</th>
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-productos">
+                            {% for producto in productos %}
+                            <tr>
+                                <td>{{ producto.stock_actual }}</td>
+                                <td>{{ producto.nombre_prod }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-success agregar-producto"
+                                        data-id="{{ producto.id_prod }}" data-nombre="{{ producto.nombre_prod }}"
+                                        data-precio="{{ producto.precio_costo }}">
+                                        Añadir
+                                    </button>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="3" class="text-center">No hay productos disponibles.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+    <script src="/static/scripts/crear_compra.js"></script>
+</body>
+
+<head>
+    <link rel="stylesheet" href="/static/css/estilo_crear_compra.css">
+</head>
+{% endblock %}

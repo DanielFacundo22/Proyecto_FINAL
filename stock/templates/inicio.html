@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+
+<div id="ventasChartContainer" class="chart-container">
+    <div class="chart-label">Ventas del Mes</div>
+    <canvas id="ventasChart"></canvas>
+</div>
+{% if messages %}
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span> <!-- Este elemento debe existir -->
+        {% for message in messages %}
+        <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+</div>
+{% endif %}
+
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal = document.getElementById('modal');
+            var closeBtn = document.querySelector('.close');
+    
+            // Verificar si el modal y el botón de cerrar existen
+            if (modal && closeBtn) {
+                // Mostrar modal si contiene mensajes
+                if (modal.querySelector('p')) {
+                    modal.style.display = 'flex';
+                }
+    
+                // Cerrar modal al hacer clic en la "x"
+                closeBtn.addEventListener('click', function () {
+                    modal.style.display = 'none';
+                });
+    
+                // Cerrar modal al hacer clic fuera del contenido
+                window.addEventListener('click', function (event) {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+    
+    <script src="/static/scripts/inicio.js"></script>
+</body>
+
+<head>
+    <link rel="stylesheet" href="/static/css/inicio.css">
+</head>
+
+{% endblock %}

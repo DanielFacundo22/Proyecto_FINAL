@@ -1,0 +1,192 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #184ee0;
+}
+
+.contenedor_compras {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.caja_compras {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 60%;
+}
+
+.caja_productos {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+}
+
+.compras_fecha,
+.compras_proveedor,
+.total_compra {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="date"],
+input[type="number"],
+select {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Table Styles */
+#tabla_compras {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#tabla_compras th,
+#tabla_compras td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #007bff;
+}
+
+#tabla_compras th {
+    background-color: #007bff;
+}
+
+#tabla_compras tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.total_compra input {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Button Styles */
+.botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+.btn-aceptar_compra {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-aceptar_compra:hover {
+    background-color: #218838;
+}
+
+.nueva_compra {
+    background-color: #007bff;
+    color: white;
+}
+
+.nueva_compra:hover {
+    background-color: #0056b3;
+}
+
+/* Product Card Styles */
+.card {
+    background-color: white;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    border-bottom: 1px solid #007bff;
+}
+
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .contenedor_compras {
+        flex-direction: column;
+    }
+
+    .caja_compras,
+    .caja_productos {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .botones {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .botones button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

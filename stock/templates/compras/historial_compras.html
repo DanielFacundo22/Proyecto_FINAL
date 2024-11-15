@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Historial de Compras{% endblock %}
+
+{% block contenido %}
+<div class="contenedor_historial_compras">
+    <h1>Historial de Compras</h1>
+    <!--filtro por fecha-->
+    <div id="filtros_compras">
+        <form method="get" action="">
+            <label for="fecha_inicio">Fecha Inicio:</label>
+            <input type="date" name="fecha_inicio" id="fecha_inicio">
+    
+            <label for="fecha_fin">Fecha Fin:</label>
+            <input type="date" name="fecha_fin" id="fecha_fin">
+    
+            <button type="submit">Filtrar</button>
+            <button type="button" id="btn_limpiar_filtros">Limpiar Filtros</button>
+        </form>
+    </div>
+
+    <!-- Tabla para mostrar el historial de compras -->
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Proveedor</th>
+                <th>Total de la Compra</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for compra in compras %}
+            <tr>
+                <td>{{ compra.fecha_compra }}</td>
+                <td>{{ compra.id_prov.nombre_prov }}</td>
+                <td>${{ compra.total_compra }}</td>
+                <td>
+                    <!-- Enlace para ver detalles de la compra -->
+                    <a href="{% url 'det_compra' compra.id_compra %}" class="btn btn-info">Ver Detalle</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">No se han registrado compras.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+<body>
+    <script src="/static/scripts/historial_compras.js"></script>
+</body>
+
+<head>
+    <link rel="stylesheet" href="/static/css/estilo_historial_compras.css"> 
+</head>
+{% endblock %}

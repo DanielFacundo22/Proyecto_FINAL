@@ -2,27 +2,16 @@
     {% csrf_token %}
 
     {% for campo in formulario %}
-     <div class="mb-3">
+    <div class="mb-3">
 
         <label for="" class="form-label">{{campo.label}}</label>
 
-        <input type="text" 
-        class="form-control" 
-        name="{{campo.name}}" 
-        id="" 
-        aria-describedby="helpId" 
-        placeholder="{{campo.label}}"
-        value="{{ campo.value | default:"" }}"
-         />
+        <input type="text" class="form-control" name="{{campo.name}}" id="" aria-describedby="helpId"
+            placeholder="{{campo.label}}" value="{{ campo.value | default:"" }}" />
 
-     </div>
+    </div>
     {% endfor %}
-    <input
-        name=""
-        id=""
-        class="btn btn-success"
-        type="submit"
-        value="Guardar"
-    />
-    
+    <input name="" id="" class="btn btn-success" type="submit" value="Guardar" />
+
 </form>
+

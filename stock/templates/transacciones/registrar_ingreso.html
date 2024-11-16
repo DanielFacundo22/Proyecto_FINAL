@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 {% block contenido %}
-<h2>Registrar Ingreso</h2>
-{% if not arqueo_abierto %}
-<p>No hay ninguna caja abierta. Por favor, abre una caja primero.</p>
-{% else %}
-<p>Caja Abierta: {{ arqueo_abierto.id_caja }}</p>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-</form>
+<div class="contenedor_registro">
+    <div class="encabezado_registro">Registrar Ingreso</div>
+    <div class="body_registro">
+        <h3 class="titulo_registro">Ingreso a Caja</h3>
+        <form class="formulario_registro" method="post">
+            {% csrf_token %}
+            {{ seleccionar_caja_form.caja.label_tag }} {{ seleccionar_caja_form.caja }}
+            {{ form.as_p }}
+            <div class="btn_container">
+                <button type="submit" class="btn_registro" name="ingreso_form">Registrar Ingreso</button>
+            </div>
+        </form>
+    </div>
+</div>
 <head>
-    <link rel="stylesheet" href="/static/css/estilo_ingreso.css"> 
+    <link rel="stylesheet" href="/static/css/estilo_registrar_ingreso.css">
 </head>
-{% endif %}
 {% endblock %}

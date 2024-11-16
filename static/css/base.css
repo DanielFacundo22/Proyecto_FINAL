@@ -1,10 +1,12 @@
 /* Estilos generales */
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Fondo claro para un contraste limpio */
+    background-color: #f8f9fa;
+    /* Fondo claro para un contraste limpio */
 }
 
 /* Barra superior */
@@ -15,7 +17,8 @@ body, html {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil para destacar */
 }
 
 .logo-superior a {
@@ -47,7 +50,8 @@ body, html {
 
 .menu_superior .nav-item:hover {
     background-color: #0056b3;
-    transform: scale(1.05); /* Ligero agrandamiento */
+    transform: scale(1.05);
+    /* Ligero agrandamiento */
 }
 
 .user-name {
@@ -84,7 +88,8 @@ body, html {
     height: calc(100vh - 60px);
     background-color: #343a40;
     padding: 20px;
-    overflow-y: auto; /* Habilitar scroll si es necesario */
+    overflow-y: auto;
+    /* Habilitar scroll si es necesario */
     transition: width 0.3s ease, background-color 0.3s ease;
 }
 
@@ -106,8 +111,9 @@ body, html {
 }
 
 .barra_lateral .nav-item:hover {
-    
-    color: #007bff; /* Íconos cambian al azul en hover */
+
+    color: #007bff;
+    /* Íconos cambian al azul en hover */
     transform: translateX(5px);
 }
 
@@ -133,7 +139,8 @@ body, html {
 
 /* Mostrar menú desplegable al pasar el ratón */
 .dropdown:hover .dropdown-menu {
-    max-height: 400px; /* Altura máxima del menú desplegable */
+    max-height: 400px;
+    /* Altura máxima del menú desplegable */
     opacity: 1;
     transform: scaleY(1);
 }
@@ -154,7 +161,8 @@ body, html {
     background-color: #007bff;
     color: white;
     border-radius: 4px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* Sombra más pronunciada */
 }
 
 /* Estilo del enlace principal */
@@ -165,7 +173,8 @@ body, html {
     text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Espaciado entre texto e icono */
+    justify-content: space-between;
+    /* Espaciado entre texto e icono */
 }
 
 .dropdown-toggle:hover {
@@ -175,14 +184,16 @@ body, html {
 
 /* Icono para dropdowns */
 .dropdown-toggle::after {
-    content: "▼"; /* Flecha indicando que es desplegable */
+    content: "▼";
+    /* Flecha indicando que es desplegable */
     font-size: 0.8em;
     margin-left: 5px;
     transition: transform 0.3s ease;
 }
 
 .dropdown:hover .dropdown-toggle::after {
-    transform: rotate(180deg); /* Rotación de la flecha al desplegar */
+    transform: rotate(180deg);
+    /* Rotación de la flecha al desplegar */
 }
 
 /* Mejoras visuales generales */
@@ -208,18 +219,44 @@ body, html {
     background: #343a40;
 }
 
-/* Responsividad */
+/* Responsividad mejorada */
 @media (max-width: 768px) {
     .barra_lateral {
+        width: 180px;
+        /* Reducir ancho en dispositivos pequeños */
+    }
+
+    .contenedor_base {
+        margin-left: 180px;
+    }
+
+    .menu_superior {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .barra_lateral {
         width: 100%;
+        /* Ocupa el ancho completo */
         height: auto;
         position: relative;
     }
 
-    .dropdown .dropdown-menu {
-        max-height: none;
-        transform: none;
-        opacity: 1;
+    .contenedor_base {
+        margin-left: 0;
+        margin-top: 120px;
+        /* Deja espacio para la barra lateral desplazada */
+    }
+
+    .barra_superior {
+        flex-direction: column;
+    }
+
+    .menu_superior {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
@@ -229,7 +266,8 @@ body, html {
     padding: 30px;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Más profundidad en el contenedor principal */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* Más profundidad en el contenedor principal */
 }
 
 /* Pie de página */
@@ -244,6 +282,7 @@ body, html {
     bottom: 0;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
+
 /* Media queries para pantallas pequeñas */
 @media (max-width: 768px) {
     .barra_superior {
@@ -261,6 +300,20 @@ body, html {
     }
 }
 
+/* Scroll suave para barras */
+.barra_lateral::-webkit-scrollbar {
+    width: 8px;
+}
+
+.barra_lateral::-webkit-scrollbar-thumb {
+    background-color: #495057;
+    border-radius: 4px;
+}
+
+.barra_lateral::-webkit-scrollbar-track {
+    background: #343a40;
+}
+
 /* Tablas */
 table {
     width: 100%;
@@ -272,7 +325,8 @@ table {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-table th, table td {
+table th,
+table td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -285,8 +339,8 @@ table th {
 }
 
 table tr:hover td {
-    background-color: #f1f3f5; /* Fondo ligeramente más claro */
-    transition: background-color 0.3s ease; /* Animación suave */
+    background-color: #f1f3f5;
+    /* Fondo ligeramente más claro */
+    transition: background-color 0.3s ease;
+    /* Animación suave */
 }
-
-

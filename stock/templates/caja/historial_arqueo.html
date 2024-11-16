@@ -5,6 +5,7 @@
 
 <div id="pa_contenedor_historial">
     <h2>Historial de Caja</h2>
+
     <!-- Mostrar mensajes de error en una ventana modal -->
     {% if messages %}
     <div id="modal" class="modal">
@@ -16,19 +17,20 @@
         </div>
     </div>
     {% endif %}
+
+
     <!-- Formulario de búsqueda por fecha de apertura -->
     <form method="GET" action="{% url 'historial_arqueo' %}">
         <label for="fecha_apertura">Buscar:</label>
         <input type="date" id="fecha_apertura" name="fecha_apertura" value="{{ fecha_apertura|default:'' }}">
     </form>
 
-    </form>
     <!-- Barra de botones para registrar acciones -->
     <div class="button-container">
         <a href="{% url 'registrar_ingreso' %}" class="btn btn-i custom-btn">Registrar Ingreso</a>
         <a href="{% url 'registrar_egreso' %}" class="btn btn-e custom-btn">Registrar Egreso</a>
-
     </div>
+
     <!-- Contenedor de la tabla con scroll -->
     <div class="table-container">
         <table>

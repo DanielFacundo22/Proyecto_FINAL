@@ -191,3 +191,10 @@ class EgresoForm(forms.ModelForm):
             raise forms.ValidationError("El monto no puede ser negativo.")
         return monto 
 
+
+class SeleccionarCajaForm(forms.Form):
+    caja = forms.ModelChoiceField(
+        queryset=ArqueoCaja.objects.filter(cerrado=False),  # Solo cajas abiertas
+        label="Seleccionar Caja",
+        empty_label="Seleccione una caja"
+    )

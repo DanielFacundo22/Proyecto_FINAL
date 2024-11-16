@@ -1,86 +1,141 @@
-/* Contenedor principal de la sección de ingreso */
-#pa_contenedor_ingreso {
-    background-color: #f8f9fa; /* Fondo claro */
-    border: 1px solid #ddd; /* Borde sutil */
-    border-radius: 10px; /* Bordes redondeados */
-    margin: 20px auto; /* Margen superior e inferior */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 90%; /* Ancho dinámico */
-    max-width: 600px; /* Ancho máximo */
-    padding: 20px; /* Relleno interno */
+/* Contenedor principal para los formularios de ingreso y egreso */
+.contenedor_registro {
+    width: 50%;
+    margin: 50px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    overflow: hidden;
+    transition: width 0.3s ease;
 }
 
-/* Título de la sección */
-#pa_contenedor_ingreso h2 {
+/* Encabezado del formulario */
+.encabezado_registro {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
     text-align: center;
-    font-size: 2em;
-    color: #28a745; /* Verde destacable para ingresos */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Cuerpo del formulario */
+.body_registro {
+    padding: 20px;
+}
+
+.titulo_registro {
+    font-size: 1.8em;
+    color: #333;
+    text-align: center;
     margin-bottom: 20px;
-    border-bottom: 3px solid #28a745; /* Borde inferior del título */
+    border-bottom: 2px solid #007bff;
     padding-bottom: 10px;
 }
 
-/* Mensaje de alerta */
-#pa_contenedor_ingreso p {
-    font-size: 1.2em;
-    color: #6c757d; /* Gris oscuro */
-    background-color: #e9ecef; /* Fondo gris claro */
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Formulario */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Espacio entre elementos del formulario */
-}
-
-form label {
+/* Estilo de los campos del formulario */
+.formulario_registro label {
     font-weight: bold;
-    color: #495057; /* Gris más oscuro */
+    margin-bottom: 5px;
+    display: block;
 }
 
-form input, form select, form textarea {
+.formulario_registro input[type="text"],
+.formulario_registro input[type="number"],
+.formulario_registro select {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    margin-bottom: 20px;
     font-size: 1em;
-    border: 1px solid #ddd; /* Borde sutil */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra interna */
-    transition: border-color 0.3s ease;
+    box-sizing: border-box;
 }
 
-form input:focus, form select:focus, form textarea:focus {
-    border-color: #007bff; /* Borde azul al enfocar */
-    outline: none; /* Sin borde de enfoque predeterminado */
+/* Botón de acción separado */
+.btn_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-button[type="submit"] {
-    background-color: #007bff; /* Botón azul */
-    color: white; /* Texto blanco */
-    padding: 10px;
-    font-size: 1em;
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cursor de mano */
-    transition: background-color 0.3s ease;
+.btn_registro {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex: 1;
+    font-size: 1.2em;
+    text-align: center;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+.btn_registro:hover {
+    background-color: #218838;
+    transform: scale(1.05);
 }
-/* Ajustes para pantallas pequeñas */
+
+/* Modal de mensajes */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #555;
+    text-decoration: none;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
-    #pa_contenedor_ingreso {
-        width: 95%; /* Ajuste para pantallas más pequeñas */
-        padding: 15px;
+    .contenedor_registro {
+        width: 90%;
+        margin: 20px auto;
     }
 
-    button[type="submit"] {
-        font-size: 0.9em;
-        padding: 8px;
+    .titulo_registro {
+        font-size: 1.5em;
+    }
+
+    .btn_registro {
+        font-size: 1em;
+        padding: 10px;
     }
 }

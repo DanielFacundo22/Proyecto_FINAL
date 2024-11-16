@@ -2,16 +2,14 @@
     {% csrf_token %}
 
     {% for campo in formulario %}
-        <div class="mb-3">
-            <label for="{{ campo.id_for_label }}" class="form-label">{{ campo.label }}</label>
-            <input type="{{ campo.field.widget.type }}" 
-                   class="form-control" 
-                   name="{{ campo.name }}" 
-                   id="{{ campo.id_for_label }}" 
-                   aria-describedby="helpId" 
-                   placeholder="{{ campo.label }}"
-                   value="{{ campo.value|default:'' }}" />
-        </div>
+    <div class="mb-3">
+        <label for="{{ campo.id_for_label }}" class="form-label">{{ campo.label }}</label>
+        <input type="{{ campo.field.widget.type }}" class="form-control" name="{{ campo.name }}"
+            id="{{ campo.id_for_label }}" aria-describedby="helpId" placeholder="{{ campo.label }}"
+            value="{{ campo.value|default:'' }}" />
+    </div>
     {% endfor %}
     <input class="btn btn-success" type="submit" value="Guardar" />
+
 </form>
+

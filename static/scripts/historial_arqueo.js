@@ -11,36 +11,32 @@
         });
     });
 
-        // Script para manejar la ventana modal
-        var modal = document.getElementById("modal");
-        var span = document.getElementsByClassName("close")[0];
-    
-        // Mostrar la ventana modal
-        if (modal) {
-            modal.style.display = "block";
+// modal cartel
+
+document.addEventListener('DOMContentLoaded', function () {
+    var modal = document.getElementById('modal');
+    var closeBtn = document.querySelector('.close');
+
+    // Verificar si el modal y el botón de cerrar existen
+    if (modal && closeBtn) {
+        // Mostrar modal si contiene mensajes
+        if (modal.querySelector('p')) {
+            modal.style.display = 'flex';
         }
-    
-        // Cerrar la ventana modal cuando el usuario hace clic en <span> (x)
-        if (span) {
-            span.onclick = function () {
-                modal.style.display = "none";
+
+        // Cerrar modal al hacer clic en la "x"
+        closeBtn.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+
+        // Cerrar modal al hacer clic fuera del contenido
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
             }
-        }
-    
-        // Cerrar la ventana modal cuando el usuario hace clic fuera de la ventana modal
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    
-        function actualizarMontos(id_caja) {
-            fetch(`/obtener_monto_final/${id_caja}/`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById(`monto-final-${id_caja}`).innerText = `$${data.monto_final}`;
-                });
-        }
+        });
+    }
+});
         // Actualiza los montos cada 10 segundos
         setInterval(() => {
             document.querySelectorAll('[id^="monto-final-"]').forEach(element => {

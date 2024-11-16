@@ -9,10 +9,11 @@
   <div class="card-header">Crear un cliente</div>
   <div class="card-body">
     <h4 class="card-title">Descripción</h4>
-    <form enctype="multipart/form-data" method="post">  <!-- Asegúrate de que este form esté presente -->
-        {% csrf_token %}
-        {% include "clientes/form.html" %}  <!-- Asegúrate de que la ruta al form sea correcta -->
+    <form enctype="multipart/form-data" method="post"> <!-- Asegúrate de que este form esté presente -->
+      {% csrf_token %}
+      {% include "clientes/form.html" %} <!-- Asegúrate de que la ruta al form sea correcta -->
     </form>
   </div>
 </div>
+
 {% endblock %}

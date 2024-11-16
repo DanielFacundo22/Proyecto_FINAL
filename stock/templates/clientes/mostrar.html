@@ -5,6 +5,17 @@
 <div class="contenedor-lista">
     <div class="titulo-lista">Lista de Clientes</div>
 
+    {% if messages %}
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+                {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
     <div class="contenedor-tabla">
         <table class="tabla">
             <thead>
@@ -17,19 +28,19 @@
             </thead>
             <tbody>
                 {% for cliente in clientes %}
-                    <tr>
-                        <td>{{ cliente.id_cli }}</td>
-                        <td>{{ cliente.nombre_cli }}</td>
-                        <td>{{ cliente.apellido_cli }}</td>
-                        <td>
-                            <a class="btn-editar" href="{% url 'editar_clientes' cliente.id_cli %}">Editar</a>
-                            <a class="btn-borrar" href="{% url 'eliminar_clientes' cliente.id_cli %}">Borrar</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{ cliente.id_cli }}</td>
+                    <td>{{ cliente.nombre_cli }}</td>
+                    <td>{{ cliente.apellido_cli }}</td>
+                    <td>
+                        <a class="btn-editar" href="{% url 'editar_clientes' cliente.id_cli %}">Editar</a>
+                        <a class="btn-borrar" href="{% url 'eliminar_clientes' cliente.id_cli %}">Borrar</a>
+                    </td>
+                </tr>
                 {% empty %}
-                    <tr>
-                        <td colspan="4" class="no-datos">No existen clientes</td>
-                    </tr>
+                <tr>
+                    <td colspan="4" class="no-datos">No existen clientes</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
@@ -39,4 +50,36 @@
         <a class="btn-agregar" href="{% url 'crear_clientes' %}">Agregar Cliente</a>
     </div>
 </div>
+
+<head>
+    <link rel="stylesheet" href="/static/css/estilo_CRUD.css">
+</head>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var modal = document.getElementById('modal');
+        var closeBtn = document.querySelector('.close');
+
+        // Verificar si el modal y el botón de cerrar existen
+        if (modal && closeBtn) {
+            // Mostrar modal si contiene mensajes
+            if (modal.querySelector('p')) {
+                modal.style.display = 'flex';
+            }
+
+            // Cerrar modal al hacer clic en la "x"
+            closeBtn.addEventListener('click', function () {
+                modal.style.display = 'none';
+            });
+
+            // Cerrar modal al hacer clic fuera del contenido
+            window.addEventListener('click', function (event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
+
 {% endblock %}

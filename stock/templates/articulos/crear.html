@@ -3,18 +3,16 @@
 {% block titulo %}Agregar nuevo artículo{% endblock %}
 
 {% block contenido %}
-    {# Se comenta este bloque para no mostrar el mensaje global de errores #}
-    {% if formulario.errors %}
-    {% endif %}
+{# Se comenta este bloque para no mostrar el mensaje global de errores #}
+{% if formulario.errors %}
+{% endif %}
 
-    <div id="pa_card">
-        <div id="pa_card_header">Crear un artículo</div>
-        <div id="pa_card_body">
-            <h4 id="pa_card_title">Descripción</h4>
-            {% include "articulos/form.html" %}
-        </div>
+<div id="pa_card">
+    <div id="pa_card_header">Crear un artículo</div>
+    <div id="pa_card_body">
+        <h4 id="pa_card_title">Descripción</h4>
+        {% include "articulos/form.html" %}
     </div>
-    <head>
-        <link rel="stylesheet" href="/static/css/estilo_CRUD.css"> 
-    </head>
+</div>
+
 {% endblock %}

@@ -118,7 +118,7 @@ class ArqueoCaja(models.Model):
         self.save()
 
     def __str__(self):
-        return f"Caja {self.id_caja} - {self.fecha_hs_apertura}"
+        return f"Caja de {self.id_emplead} - {self.id_caja} "
 
 class Ingreso(models.Model):
     id_ingreso = models.AutoField(primary_key=True)

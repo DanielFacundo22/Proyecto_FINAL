@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2>Seleccionar Caja</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="id_caja">Seleccionar Caja:</label>
+    {{ seleccionar_caja_form.caja }}
+    <button type="submit">Seleccionar</button>
+</form>
+
+{% endblock %}

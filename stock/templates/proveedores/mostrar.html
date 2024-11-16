@@ -19,21 +19,21 @@
             </thead>
             <tbody>
                 {% for proveedor in proveedores %}
-                    <tr>
-                        <td>{{ proveedor.id_prov }}</td>
-                        <td>{{ proveedor.nombre_prov }}</td>
-                        <td>{{ proveedor.cuit_prov }}</td>
-                        <td>{{ proveedor.correo_prov }}</td>
-                        <td>{{ proveedor.tel_prov }}</td>
-                        <td>
-                            <a class="btn-editar" href="{% url 'editar_proveedores' proveedor.id_prov %}">Editar</a>
-                            <a class="btn-borrar" href="{% url 'eliminar_proveedores' proveedor.id_prov %}">Borrar</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{ proveedor.id_prov }}</td>
+                    <td>{{ proveedor.nombre_prov }}</td>
+                    <td>{{ proveedor.cuit_prov }}</td>
+                    <td>{{ proveedor.correo_prov }}</td>
+                    <td>{{ proveedor.tel_prov }}</td>
+                    <td>
+                        <a class="btn-editar" href="{% url 'editar_proveedores' proveedor.id_prov %}">Editar</a>
+                        <a class="btn-borrar" href="{% url 'eliminar_proveedores' proveedor.id_prov %}">Borrar</a>
+                    </td>
+                </tr>
                 {% empty %}
-                    <tr>
-                        <td colspan="6" class="no-datos">No existen proveedores</td>
-                    </tr>
+                <tr>
+                    <td colspan="6" class="no-datos">No existen proveedores</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
@@ -43,4 +43,6 @@
         <a class="btn-agregar" href="{% url 'crear_proveedores' %}">Agregar Proveedor</a>
     </div>
 </div>
+
+
 {% endblock %}

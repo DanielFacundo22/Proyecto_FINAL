@@ -1,30 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block titulo %}Cerrar Caja{% endblock %}
+
 {% block contenido %}
 <div class="contenedor_cierre_caja">
     <!-- Título de la sección -->
     <h2 class="text-center">Cerrar Caja</h2>
-    <h3 class="text-center">Segun el sistema</h3>
+
     <!-- Mensaje de confirmación con ícono de advertencia -->
     <p class="text-center confirmacion-cierre">
-        <span class="icono-advertencia">&#9888;</span> 
+        <span class="icono-advertencia">&#9888;</span>
         ¿Estás seguro de que deseas cerrar la caja N°<strong>{{ arqueo.id_caja }}</strong>? Esta acción es irreversible.
     </p>
-    
+
     <!-- Tabla con la información de la caja -->
     <table class="tabla_cierre_caja">
         <tr>
             <th>Empleado</th>
-            <td>{{ arqueo.id_emplead }}</td> <!-- Mostrar nombre del empleado en lugar de ID -->
+            <td>{{ arqueo.id_emplead.nombre_emplead }}</td>
         </tr>
         <tr>
             <th>Fecha y Hora de Apertura</th>
-            <td>{{ arqueo.fecha_hs_apertura }}</td>
+            <td>{{ arqueo.fecha_hs_apertura|date:"d/m/Y H:i" }}</td>
         </tr>
         <tr>
             <th>Monto Inicial</th>
-            <td>${{ arqueo.monto_inicial }}</td>
+            <td>${{ arqueo.monto_inicial|floatformat:"2" }}</td>
         </tr>
         <tr>
             <th>Total de Ingresos</th>
@@ -36,25 +38,23 @@
         </tr>
         <tr>
             <th>Monto Final Estimado</th>
-            <td><strong id="monto_final_sistema">${{ arqueo.monto_final|floatformat:"2"|default_if_none:"-" }}</strong></td>
+            <td>
+                <strong id="monto_final_sistema">
+                    ${{ arqueo.monto_final|floatformat:"2"|default_if_none:"-" }}
+                </strong>
+            </td>
         </tr>
     </table>
-
-  
 
     <!-- Formulario de confirmación -->
     <form method="post" class="formulario-cierre text-center" onsubmit="return validarMontos();">
         {% csrf_token %}
-        
-       
 
         <!-- Botones de acción: Cerrar y Cancelar -->
         <div class="botones-accion">
-            <!-- Botón de cerrar caja con ícono de advertencia -->
             <button type="submit" class="btn_cierre_caja">
                 &#128274; Cerrar Caja
             </button>
-            <!-- Botón de cancelar con color neutro -->
             <a href="{% url 'historial_arqueo' %}" class="btn btn-secondary btn_cancelar">
                 Cancelar
             </a>
@@ -67,6 +67,6 @@
 </body>
 
 <head>
-    <link rel="stylesheet" href="/static/css/estilo_cierre_arqueo.css"> 
+    <link rel="stylesheet" href="/static/css/estilo_cierre_arqueo.css">
 </head>
 {% endblock %}

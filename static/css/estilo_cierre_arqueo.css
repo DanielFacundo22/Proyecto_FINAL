@@ -7,9 +7,12 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 1200px;
-    height: 73vh; /* Altura del contenedor principal */
+    height: 73vh;
+    /* Altura del contenedor principal */
     display: flex;
     flex-direction: column;
+    transition: width 0.3s ease;
+    /* Transición suave para el cambio de ancho */
 }
 
 /* Título principal */
@@ -79,11 +82,17 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 20px;
+    transition: width 0.3s ease;
+    /* Transición suave para el cambio de ancho */
 }
 
 /* Contenedor de los botones */
 .botones-accion {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Permitir que los botones se ajusten en pantallas pequeñas */
 }
 
 /* Botón principal para cerrar la caja */
@@ -123,4 +132,33 @@
 .btn_cancelar:hover {
     background-color: #5a6268;
     transform: scale(1.05);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .contenedor_cierre_caja {
+        width: 95%;
+        /* Ancho más pequeño en pantallas móviles */
+        height: auto;
+        /* Ajustar altura en pantallas pequeñas */
+    }
+
+    .contenedor_cierre_caja h2 {
+        font-size: 1.5em;
+        /* Reducir tamaño de fuente */
+    }
+
+    .comentarios-textarea {
+        width: 100%;
+        /* Ancho completo en pantallas pequeñas */
+    }
+
+    .btn_cierre_caja,
+    .btn_cancelar {
+        font-size: 1em;
+        /* Tamaño de texto ajustado */
+        padding: 10px;
+        margin: 10px 5px;
+        /* Ajustar margen */
+    }
 }
